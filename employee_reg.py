@@ -12,16 +12,20 @@ from abc import ABC, abstractmethod
 class EmployeeRegistry:
     def __init__(self):
         # Pre-existing employees stored into the dictionary
-       pass
+       self.employees = {}
 
 # Method to add a new employee
     def add_employee(self, first_name, last_name, id_number):
-       pass
+       self.employees[id_number] = {'first_name': first_name, 'last_name': last_name}
 
 # Method to view all employees in the dictionary
-
     def view_all_employees(self):
-       pass
+        if self.employees:
+            print("List of all employees:")
+            for id_number, employee in self.employees.items():
+                print(f"ID: {id_number}, Name: {employee['first_name']} {employee['last_name']}")
+        else:
+            print("No employees found.")
 
 ##  MADISON this is your section of the code to complete
 ## The names in the method to match those in the main function
