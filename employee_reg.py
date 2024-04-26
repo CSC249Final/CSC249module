@@ -61,7 +61,7 @@ class Employee(ABC):
 # Class NewEmployee definition
 class NewEmployee(Employee):
     def __init__(self, first_name, last_name, id_number):
-        pass
+        super().__init__(first_name, last_name, id_number)
 
 ##  MADISON this is your section of the code to complete
 ## The names in the method to match those in the main function
