@@ -44,11 +44,11 @@ class EmployeeRegistry:
 
     def remove_employee(self, employee_name):
         for id_number, employee in self.employees.items():
-        if employee['first_name'] + ' ' + employee['last_name'] == employee_name:
-            del self.employees[id_number]
-            print(f"{employee_name} has been removed from the registry.")
-            return
-    print(f"No employee found with the name {employee_name}.")
+            if employee['first_name'] + ' ' + employee['last_name'] == employee_name:
+                del self.employees[id_number]
+                print(f"{employee_name} has been removed from the registry.")
+                return
+        print(f"No employee found with the name {employee_name}.")
 
 # Abstract base class for employee
 
