@@ -13,7 +13,8 @@ class EmployeeRegistry:
     def __init__(self):
         # Pre-existing employees stored into the dictionary
        self.employees = {}
-
+## Missing pre-existing library
+    
 # Method to add a new employee
     def add_employee(self, first_name, last_name, id_number):
        self.employees[id_number] = {'first_name': first_name, 'last_name': last_name}
@@ -32,11 +33,16 @@ class EmployeeRegistry:
 # Method to view employess by their ID number
 
     def view_employee_by_id(self, id_number):
-        pass
+        if id_number in self.employees:
+            employee = self.employees[id_number]
+            print(f"ID: {id_number}, Name: {employee['first_name']} {employee['last_name']}")
+        else:
+            print("Employee not found.")
 # Method to edit employee information in the registry
 
     def edit_employee(self, employee_name, new_id_number):
         pass
+## missing code that needs to be filled in
 
 ##  ASRA this is your section of the code to complete
 ## The names in the method to match those in the main function
@@ -67,4 +73,4 @@ class NewEmployee(Employee):
 ## The names in the method to match those in the main function
 # Implementing the abstract method to get employee information
     def get_employee_info(self):
-        pass
+        return (f"Name: {self.first_name} {self.last_name}, ID: {self.id_number}")
