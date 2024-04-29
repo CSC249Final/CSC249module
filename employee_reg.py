@@ -1,7 +1,7 @@
 """ This module has a dictionary with pre-existing employees.
-The main focus will be the employee's name and the ID number will be
-selected at random by the employee. The employee will only be able
-to be found with ID number but removing will need only the name."""
+The application was designed to register new employees when they start
+ their first day at work. The user will be able to 
+ add, edit, remove, and view employees by ID or all."""
 
 # Import abc to define the abstractmethod in the code
 from abc import ABC, abstractmethod
