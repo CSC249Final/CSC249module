@@ -41,8 +41,13 @@ class EmployeeRegistry:
 # Method to edit employee information in the registry
 
     def edit_employee(self, employee_name, new_id_number):
-        pass
-## missing code that needs to be filled in
+        for id_number, employee in self.employees.items():
+            if employee['first_name'] + ' ' + employee['last_name'] == employee_name:
+                del self.employees[id_number]
+                self.employees[new_id_number] = {'first_name': employee['first_name'], 'last_name': employee['last_name']}
+                print(f"{employee_name}'s ID updated to {new_id_number}.")
+                return
+        print(f"No employee found with the name {employee_name}.")
 
 ##  ASRA this is your section of the code to complete
 ## The names in the method to match those in the main function
