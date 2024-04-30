@@ -1,7 +1,7 @@
 """ This module has a dictionary with pre-existing employees.
-The main focus will be the employee's name and the ID number will be
-selected at random by the employee. The employee will only be able
-to be found with ID number but removing will need only the name."""
+The application was designed to register new employees when they start
+ their first day at work. The user will be able to 
+ add, edit, remove, and view employees by ID or all."""
 
 # Import abc to define the abstractmethod in the code
 from abc import ABC, abstractmethod
@@ -39,31 +39,49 @@ class EmployeeRegistry:
 # Method to view employess by their ID number
 
     def view_employee_by_id(self, id_number):
-        pass
+        if id_number in self.employees:
+            employee = self.employees[id_number]
+            print(f"ID: {id_number}, Name: {employee['first_name']} {employee['last_name']}")
+        else:
+            print("Employee not found.")
 # Method to edit employee information in the registry
 
     def edit_employee(self, employee_name, new_id_number):
-        pass
+        for id_number, employee in self.employees.items():
+            if employee['first_name'] + ' ' + employee['last_name'] == employee_name:
+                del self.employees[id_number]
+                self.employees[new_id_number] = {'first_name': employee['first_name'], 'last_name': employee['last_name']}
+                print(f"{employee_name}'s ID updated to {new_id_number}.")
+                return
+        print(f"No employee found with the name {employee_name}.")
 
 ##  ASRA this is your section of the code to complete
 ## The names in the method to match those in the main function
 # Method to remove employee from the registry permanently
 
     def remove_employee(self, employee_name):
-        pass
+        for id_number, employee in self.employees.items():
+            if employee['first_name'] + ' ' + employee['last_name'] == employee_name:
+                del self.employees[id_number]
+                print(f"{employee_name} has been removed from the registry.")
+                return
+        print(f"No employee found with the name {employee_name}.")
 
 # Abstract base class for employee
 
 class Employee(ABC):
-    pass
+    def __init__(self, first_name, last_name, id_number):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.id_number = id_number
 
 # Class NewEmployee definition
 class NewEmployee(Employee):
     def __init__(self, first_name, last_name, id_number):
-        pass
+        super().__init__(first_name, last_name, id_number)
 
 ##  MADISON this is your section of the code to complete
 ## The names in the method to match those in the main function
 # Implementing the abstract method to get employee information
     def get_employee_info(self):
-        pass
+        return (f"Name: {self.first_name} {self.last_name}, ID: {self.id_number}")
