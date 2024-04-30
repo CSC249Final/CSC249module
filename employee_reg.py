@@ -9,16 +9,23 @@ from abc import ABC, abstractmethod
 ##  CNYDI this is your section of the code to complete
 ## The names in the method to match those in the main function
 # Employee class to manage employee information
+
+
 class EmployeeRegistry:
     def __init__(self):
         # Pre-existing employees stored into the dictionary
-       self.employees = {}
+        self.employees = {
+            1001: {'first_name': 'Cyndi', 'last_name': 'Rue'},
+            1002: {'first_name': 'Kayatha', 'last_name': 'Jerome'},
+            1003: {'first_name': 'Asra', 'last_name': 'Khalid'},
+            1004: {'first_name': 'Madison', 'last_name': 'Price'}
+        }
 
-# Method to add a new employee
+    # Method to add a new employee
     def add_employee(self, first_name, last_name, id_number):
-       self.employees[id_number] = {'first_name': first_name, 'last_name': last_name}
+        self.employees[id_number] = {'first_name': first_name, 'last_name': last_name}
 
-# Method to view all employees in the dictionary
+    # Method to view all employees in the dictionary
     def view_all_employees(self):
         if self.employees:
             print("List of all employees:")
